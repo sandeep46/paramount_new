@@ -1,0 +1,7 @@
+[29-May-2018 05:22:35 Etc/GMT] PHP Notice:  Undefined index: id in /home/paramcmn/public_html/demos/janux/list_details.php on line 5
+[29-May-2018 05:22:35 Etc/GMT] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/paramcmn/public_html/demos/janux/list_details.php on line 10
+[29-May-2018 05:22:35 Etc/GMT] PHP Notice:  Undefined variable: mname in /home/paramcmn/public_html/demos/janux/list_details.php on line 40
+[29-May-2018 05:22:35 Etc/GMT] PHP Notice:  Undefined variable: mcode in /home/paramcmn/public_html/demos/janux/list_details.php on line 41
+[29-May-2018 05:22:35 Etc/GMT] PHP Notice:  Undefined variable: mdesc in /home/paramcmn/public_html/demos/janux/list_details.php on line 42
+[29-May-2018 05:22:35 Etc/GMT] PHP Notice:  Undefined variable: pdf in /home/paramcmn/public_html/demos/janux/list_details.php on line 44
+[29-May-2018 05:22:35 Etc/GMT] PHP Notice:  Undefined variable: img in /home/paramcmn/public_html/demos/janux/list_details.php on line 60

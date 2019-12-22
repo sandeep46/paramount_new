@@ -1,3 +1,6 @@
+<?php 
+include("admin/config1.php");
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -154,49 +157,41 @@
 										Products
 										</span>
 									</a>
-                                    
+                                    <ul>
 
-									<ul>
-										<li><a href="#">Medical Equipment</a>
+
+<?php									
+$sql = "SELECT * FROM main_cat";
+$result = mysqli_query($con, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+$maincatname=$row['main_cat'];
+$mainid=$row['main_id'];
+?>
+
+
+
+
+										<li><a href="maincategory.php?id=<?php echo $mainid;?>"><?php echo $maincatname;?></a>
 											<ul>
+                                      <?php
+$sql2 = "SELECT * FROM sub_cat where main_id_fk=$mainid";
+$result2 = mysqli_query($con, $sql2);
+while($row2 = mysqli_fetch_assoc($result2)) {
+$subcatname=$row2['Sub_cat'];
+$subid=$row2['scat_id'];
+?>      
                                             
-                                            
-                                            <li><a href="diagnostic.html">Diagonostic</a></li>
-<li><a href="">Derma</a></li>
-<li><a href="">ENT</a></li>
-<li><a href="">Endoscope</a></li>
-<li><a href="">Ophthalmology</a></li>
-<li><a href="">Medical Furniture</a></li>
-<li><a href="">Operation Theatres</a></li>
+                                           <li><a href="productdetails.php?id=<?php echo $subid;?>"><?php echo $subcatname;?></a></li>
+<?php 
+}
+?>
 												
 											</ul>
+										<?php 
+}
+?>	
 										</li>
-										<li><a href="#">Radiology / Imaging</a>
-											<ul>
-												
-											</ul>
-										</li>
-                                        <li><a href="#">Dental Equipment</a>
-											<ul>                                                                                      
-                                            <li><a href="">CAD CAM</a></li>
-											<li><a href="">Dental Treatment</a></li>
-											<li><a href="">Dental imaging Unit</a></li>
-											<li><a href="">Auto claves/Hygiene</a></li>
-											<li><a href="">Dental Laser</a></li>
-                                            <li><a href="">Dental Instruments</a></li>
-                                            <li><a href="">Dental Accessories</a></li>
-											</ul>
-										</li>
-                                        
-										<li><a href="">Laboratory Solutions</a></li>
-					
-                    					<li><a href="">Veterinary Equipment</a></li>
-										<li><a href="#">Radiation Protectionn</a>
-                                        <li><a href="#">Biomedical Engineering</a>
-											<ul>
-												
-											</ul>
-										</li>
+										
 									</ul> 
 								</li>
                                 
