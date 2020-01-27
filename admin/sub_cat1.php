@@ -1,6 +1,22 @@
-
-		<?php  
+<?php  
 include_once("header.php");
+include("config1.php"); 
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];
+$sql = "SELECT * FROM sub_cat where scat_id=$id";
+$result = mysqli_query($con, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+$catname=$row['Sub_cat'];
+$mainid=$row['main_id_fk'];
+}
+}
+else
+{
+	$catname="";
+	$id="";
+	$mainid="";
+}
 ?>	
 			<!-- start: Content -->
 			<div id="content" class="span10">
@@ -34,7 +50,8 @@ include_once("header.php");
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Sub Category</label>
 							  <div class="controls">
-						<input type="text" class="span6 typeahead" id="typeahead" name="subcat_name" data-provide="typeahead" data-items="4"/>
+							  	<input type="hidden" name="scatid" value="<?php echo $id;?>">
+						<input type="text" class="span6 typeahead" id="typeahead" value="<?php echo $catname;?>" name="subcat_name" data-provide="typeahead" data-items="4"/>
                                
                                   <!--data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
 								<p class="help-block">Start typing to activate auto complete!</p>-->
@@ -56,7 +73,16 @@ include_once("header.php");
 	$result = mysqli_query($con, $sql);
 	while($row = mysqli_fetch_array($result))
   {    
-    echo '<option value='.$row['main_id'].'>'.$row['main_cat'].'</option>';
+  	$mid=$row['main_id'];
+  	if($mid==$mainid)
+  	{
+  		$k="selected=selected";
+  	}
+  	else
+  	{
+  		$k="";
+  	}
+    echo '<option '.$k.' value='.$row['main_id'].'>'.$row['main_cat'].'</option>';
       }
 ?>
 								  </select>

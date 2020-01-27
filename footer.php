@@ -60,17 +60,16 @@
 					<div class="col-sm-6 col-md-3 col-lg-3 footer-col">
 						<h3>Contact Us</h3>
 						<div class="contact-item">
-							<div class="icon"><i class="fa fa-map-marker"></i></div>
-							<div class="text">Paramount Health Care</div>
+				
+							<div class="text">Paramount Medical Equipment Trading LLC</div>
 						</div>
                         <div class="contact-item">
-							<div class="icon"><i class="fa fa-map-marker"></i></div>
-							<div class="text">PO Box: 7584, AJMAN UAE</div>
+						<div class="text">PO Box: 7584, AJMAN UAE</div>
 						</div>
 						<div class="contact-item">
 							<div class="icon"><i class="fa fa-phone"></i></div>
-							<div class="text">Ph (O): +971 6 7459676</div><br>
-                            <div class="text">Mob: +971 50 6598442, <br>+971 50 3058545</div>
+							<div class="text">+971 6 7459676</div><br>
+                            <div class="text">+971 50 6598442, <br>+971 50 3058545</div>
 						</div>
 						<div class="contact-item">
 							<div class="icon"><i class="fa fa-fax"></i></div>
@@ -100,7 +99,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 copyright">
-						Copyright &copy; 2017, Your Website. All Rights Reserved.
+					© 2020 Paramount. All Rights Reserved. Web Design | <a target="_blank" href="http://panaceame.com/"> PITI, Dubai</a>
+
 					</div>
 					<div class="col-md-6 footer-menu">
 						<ul>

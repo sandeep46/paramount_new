@@ -6,6 +6,18 @@ include("config1.php");
 
  $main_name = $_POST['maincat'];
   $id = $_POST['id'];
+
+   if (isset($_FILES['pdf'])) {
+move_uploaded_file($_FILES["pdf"]["tmp_name"], "uploads/maincat/".$_FILES["pdf"]["name"]);
+$pdfname=$_FILES["pdf"]["name"];
+ }
+ else
+ {
+  $pdfname="";
+ }
+
+
+
 // attempt insert query execution
   if($id>0)
   {
@@ -13,7 +25,7 @@ include("config1.php");
   }
   else
   {
-   $sql = "INSERT INTO main_cat (main_cat) VALUES ('$main_name')";
+   $sql = "INSERT INTO main_cat (main_cat,main_image) VALUES ('$main_name','$pdf')";
 }
 if(mysqli_query($con, $sql)){
   //  echo "Records added successfully.";

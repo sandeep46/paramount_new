@@ -13,6 +13,7 @@ $result = mysqli_query($con, $sql);
 		$mdesc=$row['model_desc'];
 		$pdf=$row['pdf_upload'];
 		$img=$row['images_slider'];
+		$main_image=$row['main_image'];
 	}
 ?>
 			
@@ -26,17 +27,18 @@ $result = mysqli_query($con, $sql);
 					<a href="index.html">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="#">Typography</a></li>
+				<li><a href="#">Product Details</a></li>
 			</ul>
 
 			<div class="row-fluid sortable">
 				<div class="box span9">
 					<div class="box-header">
-						<h2><i class="halflings-icon white font"></i><span class="break"></span>Model Details</h2>
+						<h2><i class="halflings-icon white font"></i><span class="break"></span>Product Details</h2>
 					</div>
 					<div class="box-content">
 						  <div class="page-header">
-							  
+							  <img src="uploads/mainimage/<?php echo $main_image;?>" height ="400px" width=400px>
+							  <br>
                               <h2>Model Name: <?php echo $mname;?></h2>
                               <h2>Model Code:<?php echo $mcode;?></h2>
                               <h2>Model Description:<br><br><?php echo $mdesc;?></h2>

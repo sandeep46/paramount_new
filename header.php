@@ -47,9 +47,43 @@ include("admin/config1.php");
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  
+	  
+	  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5e245630daaca76c6fcec447/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
 	<![endif]-->
 </head>
+<style type="text/css">
+.whats_btn {
+    position: fixed;
+    bottom: 15px;
+    left: 25px;
+    z-index: 2;
+    font-size: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
+
 <body>
+<div>
+<a href="https://api.whatsapp.com/send?phone=+&amp;text=Hello" class="whats_btn" target="_blank"><img width="64px" height="64px" src="img/whatsapp_icon.png"></a>
+</div>
 	
 	<div id="preloader">
 		<div id="status"></div>
@@ -88,10 +122,10 @@ include("admin/config1.php");
 		<header>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4 logo">
+					<div class="col-md-2 logo">
 						<a href="home-layout-1.html"><img src="images/logo.png" alt=""></a>
 					</div>
-					<div class="col-md-8 nav-wrapper">
+					<div class="col-md-10 nav-wrapper">
 
 						<!-- Nav Start -->
 						<div class="nav">
@@ -106,7 +140,7 @@ include("admin/config1.php");
 										</span>
 									</a>
 									<ul>
-										<li><a href="index.html">Home</a></li>
+										<li><a href="index.php">Home</a></li>
 										
 									</ul>
 								</li>
@@ -120,7 +154,7 @@ include("admin/config1.php");
 										</span>
 									</a>
 									<ul>
-										<li><a href="about-us.html">About Us</a>
+										<li><a href="aboutus.php">About Us</a>
 											
 										</li>
                                         </ul>
@@ -149,7 +183,7 @@ include("admin/config1.php");
                                 
                                 
                                 <li>
-									<a href="#">
+									<a href="maincategory.php">
 										<span class="menu-description">
 											<i class="fa fa-list"></i>
 										</span>
@@ -161,7 +195,7 @@ include("admin/config1.php");
 
 
 <?php									
-$sql = "SELECT * FROM main_cat";
+$sql = "SELECT * FROM main_cat order by main_id";
 $result = mysqli_query($con, $sql);
 while($row = mysqli_fetch_assoc($result)) {
 $maincatname=$row['main_cat'];
@@ -171,7 +205,7 @@ $mainid=$row['main_id'];
 
 
 
-										<li><a href="maincategory.php?id=<?php echo $mainid;?>"><?php echo $maincatname;?></a>
+										<li><a href="subcategory.php?id=<?php echo $mainid;?>"><?php echo $maincatname;?></a>
 											<ul>
                                       <?php
 $sql2 = "SELECT * FROM sub_cat where main_id_fk=$mainid";
@@ -181,7 +215,7 @@ $subcatname=$row2['Sub_cat'];
 $subid=$row2['scat_id'];
 ?>      
                                             
-                                           <li><a href="productdetails.php?id=<?php echo $subid;?>"><?php echo $subcatname;?></a></li>
+                                           <li><a href="product_list.php?id=<?php echo $subid;?>&mainid=<?php echo $mainid;?>"><?php echo $subcatname;?></a></li>
 <?php 
 }
 ?>
@@ -209,11 +243,11 @@ $subid=$row2['scat_id'];
 											Services
 										</span>
 									</a>
-									<!--<ul>
-										<li><a href="gallery-col-2.html">Gallery 2 Columns</a></li>
-										<li><a href="gallery-col-3.html">Gallery 3 Columns</a></li>
-										<li><a href="gallery-col-4.html">Gallery 4 Columns</a></li>
-									</ul>-->
+									<ul>
+										<li><a href="">Biomedical Engineering & Equipment Repair Services</a></li>
+										<li><a href="">Project Management</a></li>
+										<li><a href="">Clinical Turnkey</a></li>
+									</ul>
 								</li>
 								<!--<li>
 									<a href="#">
@@ -247,7 +281,7 @@ $subid=$row2['scat_id'];
 										</span>
 									</a>
 									<ul>
-										<li><a href="contact.html">Gallery</a></li>
+										<li><a href="gallery.php">Gallery</a></li>
 										
 									</ul>
 								</li>
@@ -261,7 +295,7 @@ $subid=$row2['scat_id'];
 										</span>
 									</a>
 									<ul>
-										<li><a href="contact.html">Contact Us</a></li>
+										<li><a href="contactus.php">Contact Us</a></li>
 										
 									</ul>
 								</li>			

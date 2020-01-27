@@ -32,7 +32,7 @@ include("config1.php");
 							  <tr>
 								  <th>Model Code</th>
 								  <th>Model Name</th>
-								  <th>Description</th>
+								  
 								  <th>PDF</th>
 								  <th>VIEW</th>
 							  </tr>
@@ -48,12 +48,18 @@ $result = mysqli_query($con, $sql);
 						<tr>
 								<td><?php echo $row['model_code'];?></td>
 								<td><?php echo $row['model_name'];?></td>
-								<td><?php echo $row['model_desc'];?></td>
+							
 								<td><?php echo $row['pdf_upload'];?></td>
                               
 								<td class="center">
 									<a class="btn btn-success" href="list_details.php?id=<?php echo $row['model_id'];?>">
 										<i class="halflings-icon white zoom-in"></i>  
+									</a>
+									 <a class="btn btn-info" href="Model_page.php?id=<?php echo $row['model_id']; ?>">
+										<i class="halflings-icon white edit"></i>  
+									</a>
+									<a class="btn btn-danger" href="Model_page.php?id=<?php echo $row['model_id'];?>">
+									<i class="halflings-icon white trash"></i> 
 									</a>
 									
 									

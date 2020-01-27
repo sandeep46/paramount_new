@@ -73,8 +73,10 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> MASTERS</span></a>
 							<ul>
-								<li><a class="submenu" href="Mcat_list.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Main Category</span></a></li>
-								<li><a class="submenu" href="sub_cat1.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category</span></a></li>
+								<li><a class="submenu" href="Mcat_list.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Main Category List</span></a></li>
+								<li><a class="submenu" href="Main_cat.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Main Category Add</span></a></li>
+								<li><a class="submenu" href="Scat_list.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category List</span></a></li>
+								<li><a class="submenu" href="sub_cat1.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category Add</span></a></li>
 								<!-- <li><a class="submenu" href="sub_cat2.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category2</span></a></li>
                                 <li><a class="submenu" href="sub_cat3.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category3</span></a></li> -->
 							</ul>	
@@ -82,8 +84,8 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">PRODUCT</span>
 							</a><ul>
-						<li><a href="Model_page.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> Insert Model</span></a></li>
-                        <li><a href="List.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> List Model</span></a></li>
+						<li><a href="Model_page.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> Insert Product</span></a></li>
+                        <li><a href="list.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> List Product</span></a></li>
                         </ul></li>
 						
 					</ul>

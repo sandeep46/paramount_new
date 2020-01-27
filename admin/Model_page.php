@@ -1,4 +1,48 @@
-<?php  include_once("header.php"); ?>
+<?php  include_once("header.php"); 
+include("config1.php"); 
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];
+$sql = "SELECT * FROM model_details where model_id=$id";
+$result = mysqli_query($con, $sql);
+
+
+    while($row = mysqli_fetch_assoc($result)) {
+    	
+    	$maincat=$row['maincat_id'];
+    	$subcat1=$row['sub_cat1'];
+	    $subcat2=$row['sub_cat2'];
+		
+
+
+		$mcode=$row['model_code'];
+		$mname=$row['model_name'];
+		$mdesc=$row['model_desc'];
+		$pdf=$row['pdf_upload'];
+		$img=$row['images_slider'];
+		$main_image=$row['main_image'];
+	}
+
+}
+else
+{
+	    	$maincat="";
+    	$subcat1="";
+	    $subcat2="";
+		$subcat3="";
+        $mcode="";
+		$mname="";
+		$mdesc="";
+		$pdf="";
+		$img="";
+		$main_image="";
+
+
+}
+
+
+
+?>
 			
 			<!-- start: Content -->
 			<div id="content" class="span10">
@@ -28,8 +72,15 @@
 					</div>
 					<div class="box-content">
 						<form class="form-horizontal" action="model_insert.php" enctype="multipart/form-data" method="post">
+						 
 						  <fieldset>
-
+                           <div class="control-group">
+							  <label class="control-label" for="fileInput">Main Images</label>
+							  <div class="controls">
+								<input class="input-file uniform_on" id="images" name="MA" type="file">
+						<input type="hidden" value="<?php echo $id;?>" name="id">
+							  </div>
+							</div>
 						  	    <div class="control-group">
 							  <label class="control-label" for="fileInput">Upload Images</label>
 							  <div class="controls">
@@ -46,23 +97,40 @@
 	$result = mysqli_query($con, $sql);
 	while($row = mysqli_fetch_array($result))
   {    
-    echo '<option value='.$row['main_id'].'>'.$row['main_cat'].'</option>';
+  	if($row['main_id']==$maincat)
+  	{
+  		$selected='selected';
+  	}
+  	else
+  	{
+  		$selected="";
+  	}
+    echo '<option '.$selected.' value='.$row['main_id'].'>'.$row['main_cat'].'</option>';
       }
 ?>
     </select><br>
 								</div>
 							  </div>
 						          <div class="control-group">
-								<label class="control-label" for="selectError3">Sub Category1</label>
+								<label class="control-label" for="selectError3">Sub Category</label>
 								<div class="controls">
 								  <select id="selectError3" name="subcat1">
-									<?php
+	<option value=0>--Select--</option>
+								<?php
     include("config1.php");
     $sql="SELECT * FROM sub_cat";
 	$result = mysqli_query($con, $sql);
 	while($row = mysqli_fetch_array($result))
   {    
-    echo '<option value='.$row['scat_id'].'>'.$row['Sub_cat'].'</option>';
+  		if($row['scat_id']==$subcat1)
+  	{
+  			$selected='selected';
+  	}
+  	else
+  	{
+  		$selected="";
+  	}
+    echo '<option '.$selected.' value='.$row['scat_id'].'>'.$row['Sub_cat'].'</option>';
       }
 ?>
     </select>
@@ -72,13 +140,22 @@
 								<label class="control-label" for="selectError3">Sub Category2</label>
 								<div class="controls">
 								  <select id="selectError3" name="subcat2">
+<option value=0>--Select--</option>
 									<?php
     include("config1.php");
     $sql="SELECT * FROM sub_cat2";
 	$result = mysqli_query($con, $sql);
 	while($row = mysqli_fetch_array($result))
   {    
-    echo '<option value='.$row['id'].'>'.$row['subcat2_name'].'</option>';
+    		if($row['id']==$subcat2)
+  	{
+  			$selected='selected';
+  	}
+  	else
+  	{
+  		$selected="";
+  	}
+    echo '<option '.$selected.' value='.$row['id'].'>'.$row['subcat2_name'].'</option>';
       }
 ?>
     </select>
@@ -86,7 +163,7 @@
 							  </div>
 
 
-							           <div class="control-group">
+							           <div class="control-group" style="display: none">
 								<label class="control-label" for="selectError3">Sub Category3</label>
 								<div class="controls">
 								 <select id="selectError3" name="subcat3">
@@ -105,21 +182,22 @@
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Product Code</label>
 							  <div class="controls">
-						<input type="text" name="modelcode" class="span6 typeahead" id="mc"  data-provide="typeahead" data-items="4"/>
+						<input type="text" name="modelcode" value="<?php echo $mcode;?>" class="span6 typeahead" id="mc"  data-provide="typeahead" data-items="4"/>
                         
 							  </div>
 							</div>
                             <div class="control-group">
 							  <label class="control-label" for="typeahead">Product Name</label>
 							  <div class="controls">
-						<input type="text" name="modelname"class="span6 typeahead" id="mn"  data-provide="typeahead" data-items="4"/>
+						<input type="text" name="modelname"  value="<?php echo $mname;?>" class="span6 typeahead" id="mn"  data-provide="typeahead" data-items="4"/>
                         
 							  </div>
 							</div>
                             <div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">Description</label>
 							  <div class="controls">
-								<textarea class="cleditor" name="modeldesc" id="md" rows="3"></textarea>
+								<textarea class="cleditor" name="modeldesc" id="md" rows="3"><?php echo $mdesc;?>
+								</textarea>
 							  </div>
 							</div>
                     
