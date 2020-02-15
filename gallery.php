@@ -36,72 +36,28 @@
 
         <div class="row">
 
+            <?php
+  $sql = "SELECT * FROM gallery";
+$result = mysqli_query($con, $sql);
+
+
+    while($row = mysqli_fetch_assoc($result)) {
+        $img=$row['g_image'];
+    
+    ?>    
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a class="lightbox" href="images/gallery/thumbnail/1.jpg">
-                        <img src="images/gallery/thumbnail/1.jpg" alt="Park">
+                    <a class="lightbox" href="admin/uploads/gallery/<?php echo $img;?>">
+                        <img src="admin/uploads/gallery/<?php echo $img;?>" alt="Park">
                     </a>
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
+                 
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <a class="lightbox" href="images/gallery/thumbnail/2.jpg">
-                        <img src="images/gallery/thumbnail/2.jpg" alt="Bridge">
-                    </a>
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <a class="lightbox" href="images/gallery/thumbnail/3.jpg">
-                        <img src="images/gallery/thumbnail/3.jpg" alt="Tunnel">
-                    </a>
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <a class="lightbox" href="images/gallery/thumbnail/4.jpg">
-                        <img src="images/gallery/thumbnail/4.jpg" alt="Coast">
-                    </a>
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <a class="lightbox" href="images/gallery/thumbnail/5.jpg">
-                        <img src="images/gallery/thumbnail/5.jpg" alt="Rails">
-                    </a>
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <a class="lightbox" href="images/gallery/thumbnail/6.jpg">
-                        <img src="images/gallery/thumbnail/6.jpg" alt="Traffic">
-                    </a>
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </div>
+
+        <?php
+    }
+        ?>    
+           
         </div>
 
     </div>

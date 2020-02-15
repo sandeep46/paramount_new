@@ -1,44 +1,30 @@
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+include("admin/config1.php"); 
+
+?>
 
 		
 		<!-- Slider Start -->
 		<section class="main-slider">
 			<div class="slider">
 				<ul class="bxslider">
-					<li style="background-image:url(images/slides/bg2.png);">
-						<div class="overlay"></div>
-						<div class="content">
-							<div class="inner tal">
-								<!--<h2>
-									Health Care
-								</h2>
-								<h3>
-									You Reliable Medical Solution
-								</h3>
-								<p class="button">
-									<a href="#" class="btn btn-flat">View Details</a>
-								</p>-->
-							</div>
-						</div>
-					</li>
-					<li style="background-image:url(images/slides/bg1.png);">
+			<?php
+  $sql = "SELECT * FROM slider";
+$result = mysqli_query($con, $sql);
+
+
+    while($row = mysqli_fetch_assoc($result)) {
+    	$img=$row['slider_image'];
+	
+	?>					<li style="background-image:url('admin/uploads/slidernew/<?php echo $img;?>');">
 						<div class="overlay"></div>
 						<div class="content">
 							
 						</div>
 					</li>
-					<li style="background-image:url(images/slides/bg3.png);">
-						<div class="overlay"></div>
-						<div class="content">
-							
-						</div>
-					</li>
-                    <li style="background-image:url(images/slides/bg4.png);">
-						<div class="overlay"></div>
-						<div class="content">
-							
-						</div>
-					</li>					
+	<?php
+}
+?>				
 				</ul>
 			</div>
 		</section>
@@ -51,7 +37,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="heading wow fadeInUp">
-							<h2><font color="#0BA997"><b>PARAMOUNT HEALTHCARE</b></font> - "A Commitment of Technology"</h2>
+							<h2><font color="#0BA997"><b>PARAMOUNT HEALTHCARE </b></font> - "A Commitment of Technology"</h2>
 							
 							<div class="sep"></div>
 						</div>
@@ -218,61 +204,89 @@
 						<div class="department-tab">
 
 							<ul class="nav nav-tabs col-md-4">
-								<li class="active">
-                                <a href="#tab1" data-toggle="tab" aria-expanded="true">
-                                <span><img src="images/logos/medical.png"></span>
-                                Medical Equipments</a></li>
-								<li class=""><a href="#tab2" data-toggle="tab" aria-expanded="false">
-                                <span><img src="images/logos/radiology.png"></span>Radiology / Imaging</a></li>
-								<li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false">
-                                <span><img src="images/logos/dental.png"></span>
-                                Dental Equipment</a></li>
-								<li class=""><a href="#tab4" data-toggle="tab" aria-expanded="false">
-                                <span><img src="images/logos/laboratory.png"></span>Laboratory Solutions</a></li>
-								<li class=""><a href="#tab5" data-toggle="tab" aria-expanded="false">
-                                <span><img src="images/logos/veterinary.png"></span>Veterinary Equipment</a></li>
-                                			<li class=""><a href="#tab6" data-toggle="tab" aria-expanded="false">
-                                            <span><img src="images/logos/radiation.png"></span>Radiation Protection</a></li>
-                                            
-                                                  
-                                                            <li class=""><a href="#tab7" data-toggle="tab" aria-expanded="false">
-                                                            <span><img src="images/logos/ambulance.png"></span>Emergency Ambulance</a></li>
+
+<?php		
+$i=1;
+$k=1;								
+$sql = "SELECT * FROM main_cat order by main_id";
+$result = mysqli_query($con, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+$maincatname=$row['main_cat'];
+$mainid=$row['main_id'];
+if($i==1)
+{
+$status="class='active'";
+}
+else
+{
+$status="";
+}
+?>
+
+
+
+
+								<li <?php echo $status;?>>
+                                <a href="#tab<?php echo $mainid;?>" data-toggle="tab" aria-expanded="true">
+                               
+                                <?php echo $maincatname;?></a></li>
+
+<?php
+$i++;
+}
+?>
+								
                                                             
                                                             			
 							</ul>
 							
 							<!-- Tab Content Start -->
 							<div class="tab-content col-md-8">
-								<div class="tab-pane fade active in" id="tab1">
+<?php	
+							
+$sql = "SELECT * FROM main_cat order by main_id";
+$result = mysqli_query($con, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+$maincatname=$row['main_cat'];
+$mainid=$row['main_id'];
+if($k==1)
+{
+$statusactive="active in";
+}
+else
+{
+$statusactive="";
+}
+$k++;
+?>
+								<div class="tab-pane fade <?php echo $statusactive; ?>" id="tab<?php echo $mainid;?>">
 									<div class="row">										
 										<div class="col-md-7">
 											<div class="department-content">
-												<h2>Medical Equipments</h2>
+												<h2><?php echo $maincatname;?></h2>
 												<p>
-													We represents well known international brands in Medical equipment industry , equipments and solutions.
+													
 												</p>
-												<h3>We offer for:</h3>
+												<h3></h3>
 												<div class="row">
 													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 														<ul>
-															<li>Diagonostic</li>
-															<li>ENT</li>
-															<li>Derma</li>
-                                                            <li>Endoscope</li>
-
+	<?php
+$sql2 = "SELECT * FROM sub_cat where main_id_fk=$mainid";
+$result2 = mysqli_query($con, $sql2);
+while($row2 = mysqli_fetch_assoc($result2)) {
+$subcatname=$row2['Sub_cat'];
+$subid=$row2['scat_id'];
+?>      														<li><?php echo $subcatname;?></li>
+															
+<?php } ?>
+                                                          
 														</ul>
 													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Ophthalmology</li>
-															<li>Physiotherapy</li>
-															<li>Medical Furniture</li>
-                                                            <li>OTP Equipment</li>
-														</ul>
-													</div>
+													
 												</div>
 												<p class="button">
-													<a href="#">See Details</a>
+													<a href="subcategory.php?id=<?php echo $mainid;?>">See Details</a>
 												</p>											
 											</div>
 										</div>
@@ -283,293 +297,19 @@
 										</div>
 									</div>
 								</div>
-								<div class="tab-pane fade" id="tab2">
-									<div class="row">										
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Radiology/ Medical Imaging</h2>
-												<p>
-													We provide complete turnkey solutions to any Radiology / Medical imaging needs of today's Health care industry. We represent prestigious multinational companies in the industries from US, Germany, India, Japan etc..
-												</p>
-												<h3>We offer for:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>General Radiography</li>
-															<li>C-Arm</li>
-															<li>Cath-Labs</li>
-                                                            <li>Digital Radiography</li>
-															<li>Mamography</li>
-                                                            <li>IT Solutions</li>
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Computerised Radiography</li>
-															<li>Ultrasound</li>
-															<li>Bone Densitometer</li>
-                                                            <li>Contrast Delivery Pressure Injector</li>
-															
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w2.jpg" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<div class="tab-pane fade" id="tab3">
-									<div class="row">
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Dental Equipment</h2>
-												<p>
-													We supply a wide range of medical equipments and lab furniture in UAE, offering the best and complete dental surgery setup.
-												</p>
-												<h3>We offer for:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>CAD CAM</li>
-															<li>Dental Treatment Unit</li>
-															<li>Dental Imaging Unit</li>
-                                                            <li>Autoclaves/Hygiene</li>
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Dental Laser</li>
-															<li>Dental Instruments</li>
-															<li>Dental Accessories</li>
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w3.jpg" alt="">
-											</div>
-										</div>										
-									</div>
-								</div>
 
-								<div class="tab-pane fade" id="tab4">
-									<div class="row">
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Laboratory Solutions</h2>
-												<p>
-													We have a specialised manufacturing facility for lab furniture and equipment like dental cabinets and other medical equipments in UAE. We provide the best innovative ergonomic designs and tailor made solutions according to the need of the facility.
-												</p>
-												<h3>We offer for:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Clinical Laboratory</li>
-															<li>Industrial Laboratory </li>
-															
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															
-															<li>Educational Laboratory</li>
-															<li>Educational Products</li>
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w4.jpg" alt="">
-											</div>
-										</div>
-									</div>									
-								</div>
+<?php } $k++; ?>
 
 
 
 
 
 
-								<div class="tab-pane fade" id="tab5">
-									<div class="row">
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Veterinary Equipment</h2>
-												<p>
-													We do have solutions for the need of veterinarians.
-												</p>
-												<h3>We offer for:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Vet. X-Ray System</li>
-															<li>Vet. Computerized Radiology</li>
-															<li>Vet. Imaging Equipment</li>
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-																<li>Vet. Surgical Equipment </li>
-															<li>Vet. Lab Equipment</li>
-															<li>Vet. Furniture and Cages</li>
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w5.jpg" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
+								
                                 
                                 
                                 
-                                <div class="tab-pane fade" id="tab6">
-									<div class="row">
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Radiation Protection</h2>
-												<p>
-													We provide radiation shielding solutions and supplies for Hospital and Clinic Construction, Industrial NDT, power Generation, Security and Defense, Aerospace and nuclear Industries and Personal Radiation protection for more than 20 years.
-												</p>
-												<h3>Special Services:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-                                                        
-                                                       <li> Radiation Shielding</li>
-<li>Rf Shielding</li>
-<li>Lead Sheets</li>
-<li>Lead Shielding Doors</li>
-
-															
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Lead Glass Windows</li>
-<li>Leaded Gypsum Boards</li>
-<li>Leaded plywood</li>
-<li>Lead Storage Cabinets </li>
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w4.jpg" alt="">
-											</div>
-										</div>
-									</div>									
-								</div>
-
-                                <!--<div class="tab-pane fade" id="tab7">
-									<div class="row">
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Biomedical Engineering</h2>
-												<p>
-													One Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, iste, architecto ullam tenetur quia nemo ratione tempora consectetur quos minus ut quo nulla ipsa aliquid neque molestias et qui sunt. Odit, molestiae.
-												</p>
-												<h3>Special Services:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Special Service Item 1</li>
-															<li>Special Service Item 2</li>
-															<li>Special Service Item 3</li>
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Special Service Item 4</li>
-															<li>Special Service Item 5</li>
-															<li>Special Service Item 6</li>
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w5.jpg" alt="">
-											</div>
-										</div>
-									</div>
-								</div>-->
-                                
-                                
-                                <div class="tab-pane fade" id="tab7">
-									<div class="row">
-										<div class="col-md-7">
-											<div class="department-content">
-												<h2>Emergency Ambulance</h2>
-												<p>
-													We supply a wide range of Emergency medical Equipments and Ambulances.
-												</p>
-												<h3>We offer for:</h3>
-												<div class="row">
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Emergency Medical Equipment</li>
-														
-														</ul>
-													</div>
-													<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-														<ul>
-															<li>Ambulances</li>
-														
-														</ul>
-													</div>
-												</div>
-												<p class="button">
-													<a href="#">See Details</a>
-												</p>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="thumb">
-												<img class="img-fullwidth" src="images/departments/w5.jpg" alt="">
-											</div>
-										</div>
-									</div>
-								</div>
-                                
-							</div>
-							<!-- Tab Content End -->
-						</div>
-						<!-- Department Tab End -->
 
 
 					</div>

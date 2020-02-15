@@ -5,7 +5,7 @@
 					<div class="col-md-12">
 						<div class="item">
 							<ul>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://facebook.com/Paramountuae?_rdc=1&_rdr" target="_blank"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -61,7 +61,7 @@
 						<h3>Contact Us</h3>
 						<div class="contact-item">
 				
-							<div class="text">Paramount Medical Equipment Trading LLC</div>
+							<div class="text">Paramount Medical Equipment Trad.LLC</div>
 						</div>
                         <div class="contact-item">
 						<div class="text">PO Box: 7584, AJMAN UAE</div>
@@ -69,8 +69,11 @@
 						<div class="contact-item">
 							<div class="icon"><i class="fa fa-phone"></i></div>
 							<div class="text">+971 6 7459676</div><br>
-                            <div class="text">+971 50 6598442, <br>+971 50 3058545</div>
-						</div>
+								<div class="icon"><i class="fa fa-phone"></i></div>
+                            <div class="text">+971 50 6598442 </div><br>
+			    	<div class="icon"><i class="fa fa-phone"></i></div>
+			  <div class="text">+971 50 3058545</div>
+			  			</div>
 						<div class="contact-item">
 							<div class="icon"><i class="fa fa-fax"></i></div>
 							<div class="text">Fax: +971 6 7459678</div>
@@ -83,10 +86,7 @@
 						</div>
                         
         
-						<div class="contact-item">
-							<div class="icon"><i class="fa fa-envelope-o"></i></div>
-							<div class="text"><a class="__cf_email__" href="http://themes.a3devs.com/cdn-cgi/l/email-protection" data-cfemail="bdd4d3dbd2fdc4d2d6d2dfd993ded2d0">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></div>
-						</div>
+					
 					</div>
 				</div>
 			</div>
@@ -106,7 +106,7 @@
 						<ul>
 							<li><a href="#">Terms of Service</a></li>
 							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Contact Us</a></li>
+							<li><a href="contactus.php">Contact Us</a></li>
 						</ul>
 					</div>
 				</div>

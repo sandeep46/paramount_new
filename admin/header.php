@@ -77,6 +77,13 @@
 								<li><a class="submenu" href="Main_cat.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Main Category Add</span></a></li>
 								<li><a class="submenu" href="Scat_list.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category List</span></a></li>
 								<li><a class="submenu" href="sub_cat1.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category Add</span></a></li>
+
+
+
+<li><a class="submenu" href="Scat_list2.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category List 2</span></a></li>
+								<li><a class="submenu" href="sub_cat2.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category 2 Add</span></a></li>
+
+
 								<!-- <li><a class="submenu" href="sub_cat2.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category2</span></a></li>
                                 <li><a class="submenu" href="sub_cat3.php"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Category3</span></a></li> -->
 							</ul>	
@@ -86,6 +93,21 @@
 							</a><ul>
 						<li><a href="Model_page.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> Insert Product</span></a></li>
                         <li><a href="list.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> List Product</span></a></li>
+                        </ul></li>
+
+                        <li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">SLIDER</span>
+							</a><ul>
+						<li><a href="slideradd.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> Insert slider</span></a></li>
+                        <li><a href="listslider.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> List Slider</span></a></li>
+                        </ul></li>
+
+
+                         <li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">GALLERY</span>
+							</a><ul>
+						<li><a href="galleryadd.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> Insert Gallery</span></a></li>
+                        <li><a href="listgallery.php" class="submenu"><i class="icon-edit"></i><span class="hidden-tablet"> List Gallery</span></a></li>
                         </ul></li>
 						
 					</ul>

@@ -123,7 +123,7 @@ s0.parentNode.insertBefore(s1,s0);
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2 logo">
-						<a href="home-layout-1.html"><img src="images/logo.png" alt=""></a>
+						<a href="index.php"><img src="images/logo.png" alt=""></a>
 					</div>
 					<div class="col-md-10 nav-wrapper">
 

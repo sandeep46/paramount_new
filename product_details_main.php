@@ -2,7 +2,7 @@
 include("admin/config1.php"); 
 
 $id=$_GET['id'];
-  $sql = "SELECT * FROM model_details where model_id=$id";
+  $sql = "SELECT * FROM model_details where maincat_id=$id";
 $result = mysqli_query($con, $sql);
 
 
