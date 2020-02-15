@@ -397,7 +397,7 @@ header.sticky .sf-menu li li a {
 }
 
 .sf-menu li a {
-	color: #43BAAC;
+	color: #192a8b;
 	border: 0;
 	font-size: 14px;
 	font-weight: bold;
@@ -4170,7 +4170,7 @@ ul.gallery-menu li.filter:nth-last-of-type(1) {
 .department-v2 .department-tab .nav-tabs > li.active > a:focus,
 .department-v2 .department-tab .nav-tabs > li a:hover,
 .department-v2 .department-tab .nav-tabs > li a:focus {
-  	background-color: #43BAAC!important;
+  	background-color: #192a8b!important;
 }
 
 .department-v2 .department-tab .nav-tabs > li > a span {
@@ -4234,7 +4234,7 @@ ul.gallery-menu li.filter:nth-last-of-type(1) {
     -moz-transition: all 0.4s ease 0s;
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
-    background: #43BAAC;
+    background: #192a8b;
 	color: #ffffff;
 	padding: 8px 16px 12px;
 	border-radius: 6px;
